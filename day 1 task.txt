@@ -1,0 +1,77 @@
+1) Write a blog on Difference between HTTP1.1 vs HTTP2
+
+HTTP/1.1: The Workhorse of the Web
+
+  * 1. Request Multiplexing :
+      HTTP/1.1 uses a single connection per request. This means that a browser can only request 
+      one resource at a time from the server. If a web page contains numerous resources 
+      (e.g.,images, scripts, stylesheets), the browser must establish separate connections for each, 
+      which can lead to a phenomenon known as the "head-of-line blocking" problem.
+   
+   * 2. Header Compression
+      In HTTP/1.1, headers are sent in plaintext with each request and response. 
+      This can lead to significant overhead, especially when sending cookies or user agent strings. 
+
+   * 3. No Server Push Capability
+      HTTP/1.1 doesn't support server push, a mechanism that allows
+      a server to proactively send resources to the client without waiting for a request.
+      This can lead to suboptimal loading times for complex web pages.
+    
+   * 4. Resource Inlining
+     To reduce the number of HTTP requests, developers often resort to techniques like resource 
+     inlining or concatenation. 
+     These workarounds, however, come with their own set of challenges and may not always be feasible.
+
+ HTTP/2: A Leap Forward in Efficiency
+
+   * 1. Multiplexed Streams
+     HTTP/2 introduces request multiplexing, allowing multiple requests and responses to be sent
+     and received simultaneously over a single connection.This eliminates the need to establish multiple
+     connections for parallel resource retrieval.
+
+   * 2. Header Compression
+     One of the significant improvements in HTTP/2 is the use of HPACK, a header compression algorithm. 
+     This greatly reduces the overhead associated with sending headers, resulting in faster page load times.
+
+   * 3. Server Push
+     HTTP/2 enables servers to push resources to the client proactively. This means that the server 
+     can anticipate the resources a client will need and send them before the client 
+     explicitly requests them. This can lead to faster page rendering times.
+
+   * 4. Binary Protocol
+     Unlike HTTP/1.1, which uses plaintext, HTTP/2 utilizes a binary format for its frames. This makes 
+     it more compact and efficient for parsing, resulting in faster transmission.
+
+
+
+2)Write a blog about objects and its internal representation in Javascript
+
+  * JavaScript, being a versatile and widely-used programming language, relies heavily on objects. 
+    Understanding how objects are represented internally is crucial for writing efficient 
+    and effective code. In this blog post, we'll delve into the fundamentals of objects and explore
+    their internal workings in JavaScript.
+
+  *The Essence of Objects:
+   In JavaScript, objects are a core data type that allow us to group related data and functionality together. 
+   They can represent real-world entities, abstract concepts, or even structures and algorithms.
+
+  *Internal Representation of Objects:
+   JavaScript engines (like V8 in Chrome or SpiderMonkey in Firefox) handle objects internally in a fascinating way.
+   Here's a glimpse into how it works:
+
+  *1. Properties and Prototypes:
+   Objects in JavaScript can have properties, which are essentially key-value pairs. 
+   These properties can be data properties or accessor properties.
+   Additionally, every object in JavaScript has an internal property called [[Prototype]], 
+   which is a reference to another object. This allows objects to inherit properties and methods
+   from their prototypes.
+
+  *2. Hidden Classes and Shapes:
+   JavaScript engines utilize the concept of hidden classes or shapes to optimize property access.
+   When you add a property to an object, the engine assigns it a specific class based on its prototype 
+   and existing properties.
+
+  *3. Dynamic Nature :
+   JavaScript objects are highly dynamic. You can add or remove properties at any time, 
+   which can lead to changes in their internal representation. This can have performance implications,
+   especially in tight loops.
